@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>115寒轉：中國醫藥大學轉學考</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f5f3ee;--card:#fbfaf7;--ink:#3c3c3c;--mute:#8a8780;--line:#dcd9d1;--acc:#7f0019;--hover:#ebe8e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#1f1f1e;--card:#262625;--ink:#e8e6e0;--mute:#8f8c85;--line:#3a3a38;--acc:#d98a96;--hover:#2f2f2d}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#1f1f1e;--card:#262625;--ink:#e8e6e0;--mute:#8f8c85;--line:#3a3a38;--acc:#d98a96;--hover:#2f2f2d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Hiragino Sans",system-ui,sans-serif;line-height:1.75;font-size:15px}
+main{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:1.35rem;font-weight:500;margin:0 0 10px;letter-spacing:.08em}
+.sub{color:var(--mute);margin:0 0 36px;font-size:.82rem;line-height:1.8}
+.grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:start}
+.grid>section:nth-child(2){order:-1}
+@media(min-width:900px){main{max-width:1100px}.grid{grid-template-columns:1fr 1fr;gap:32px}.grid>section:nth-child(2){order:0;position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto}}
+h2{font-size:.95rem;font-weight:500;letter-spacing:.12em;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline}
+.count{font-size:.78rem;color:var(--mute);font-weight:400;letter-spacing:0}
+.panel{min-height:80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:14px 18px;margin-bottom:10px}
+.head{display:flex;gap:14px;align-items:flex-start}
+.rank{flex:none;min-width:22px;color:var(--acc);font-weight:500;font-size:1.15rem;line-height:1.5}
+.grip{flex:none;cursor:grab;color:var(--mute);font-size:1.1rem;line-height:1.7;touch-action:none;user-select:none}
+.sortable-ghost{opacity:.4}
+.grip{display:flex;align-items:center;height:28px;padding:0 4px;margin-left:auto}
+.grip i{display:block;width:16px;height:7px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor}
+.head>div:not(.rank):not(.grip){flex:1;min-width:0}
+.title{font-weight:500;font-size:1rem;letter-spacing:.04em}
+.dept{color:var(--mute);font-size:.8rem}
+.score{margin-top:1px;font-size:.8rem;color:var(--mute);letter-spacing:.02em}
+.tg{display:flex;justify-content:space-between;align-items:center;width:100%;margin-top:12px;padding:9px 0 3px;border:0;border-top:1px solid var(--line);border-radius:0;background:none;font-size:.8rem;color:var(--mute)}
+.tg:hover{background:none;color:var(--ink)}.tg.on{color:var(--ink)}
+.ar{width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .4s ease;margin-right:4px}
+.tg.on .ar{transform:rotate(-135deg) translateY(-2px)}
+.fold{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.4,0,.2,1)}
+.fold.open{grid-template-rows:1fr}
+.fi{overflow:hidden;min-height:0;opacity:0;transform:translateY(-6px);transition:opacity .35s ease,transform .45s ease}
+.fold.open .fi{opacity:1;transform:none}
+.sec{display:grid;grid-template-columns:5.5em 1fr;gap:4px 14px;padding:14px 0;font-size:.86rem;border-top:1px solid var(--line)}
+.fi>.sec:first-child{border-top:0}
+.sec>div{white-space:pre-wrap}
+.sec b{font-size:.74rem;font-weight:500;color:var(--acc);letter-spacing:.12em;padding-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{border:1px solid var(--line);padding:0 10px;font-size:.78rem;line-height:1.7}
+.yr{display:flex;justify-content:space-between;gap:16px;padding:3px 0;border-bottom:1px dotted var(--line)}
+.yr span:first-child{color:var(--mute)}
+.nt{font-size:.78rem;color:var(--mute);margin-top:6px}
+@media(max-width:520px){.sec{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.fold,.fi,.ar{transition:none}}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+button{font:inherit;font-size:.78rem;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:2px;padding:3px 14px;cursor:pointer;letter-spacing:.04em}
+button:hover{background:var(--hover)}
+button.primary{border-color:var(--ink)}
+button:disabled{opacity:.3;cursor:default}
+.empty{color:var(--mute);font-size:.82rem;text-align:center;padding:24px 0;border:1px dashed var(--line)}
+.tools{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--mute)}
+textarea{width:100%;font:inherit;font-size:.78rem;padding:8px 10px;border:1px solid var(--line);border-radius:2px;background:var(--card);color:var(--ink);min-height:90px;margin-top:8px}
+</style>
+</head>
+<body>
+<main>
+<h1>115寒轉：中國醫藥大學轉學考</h1>
+<p class="sub">每個學系都有 114 寒轉的最高、最低錄取分數，展開可以看教學內容、課程、未來方向與薪資。薪資標「粗估」的是沒找到可靠來源的估計值，課程為代表性科目，實際請以各系網站與 115 寒轉簡章為準。資料只存在這個瀏覽器裡。</p>
+
+<div class="grid">
+  <section>
+    <h2>候選志願 <span class="count" id="c1"></span></h2>
+    <div class="panel" id="pool"></div>
+  </section>
+  <section>
+    <h2>我的志願序 <span class="count" id="c2"></span></h2>
+    <div class="panel" id="ranked"></div>
+  </section>
+</div>
+
+<div class="tools">
+  <button id="exp">匯出備份</button>
+  <button id="imp">匯入備份</button>
+  <button id="seed">載入中國醫藥大學 12 系</button>
+  <span id="msg"></span>
+</div>
+<textarea id="box" hidden style="width:100%" placeholder="貼上備份內容後再按一次「匯入備份」"></textarea>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+<script>
+(function(){
+var KEY="zhiyuan-v1";
+var items=[],order=[],editing=null,openIds={};
+var S="中國醫藥大學",SRC="來源：學系簡介參考大學問(unews)、ColleGo 與校方資料；優缺點為整理後的參考意見，請再對照官網與學長姐心得。";
+function E(id,dept,hi,lo,intro,courses,job,salary){return {id:id,dept:dept,hi:hi,lo:lo,intro:intro,courses:courses,job:job,salary:salary}}
+var SEED=[
+E("cmu-1","公共衛生學系","124.4","105.5","以「預防」為核心，學習怎麼用數據與制度守護群體健康：流行病學、生物統計、環境與職業衛生、衛生政策管理、健康促進。強調與社區機構合作的教學，並有 MD-MPH、全英語課程與國際交換。","公共衛生學、生物統計學、流行病學、環境衛生學、健康行為與健康促進、衛生政策與管理、統計軟體應用、公共衛生資料分析。","衛生局所公務員（高普考）、臨床試驗 CRA/CRC、流行病學與生物統計分析、健康促進與健康管理、研究助理、升學碩博士。","以下皆為粗估月薪：\n第 1 年：約 3.2–3.8 萬\n第 1–3 年：約 3.6–4.4 萬\n第 3–5 年：約 4.2–5.0 萬\n第 5–7 年：約 4.8–6.0 萬\n（有碩士學歷者較高；公職依職等，沒找到可靠來源）"),
+E("cmu-2","護理學系","151.4","108.2","培養臨床護理人員，從基本照護到各科護理，臨床實習時數多，畢業後報考護理師國考。","解剖生理學、病理學、藥理學、基本護理學、內外科護理學、產科、兒科、精神科護理、社區衛生護理、長期照護、各科臨床實習。","醫院臨床護理師、專科護理師、個案管理師、護理長、社區與長照機構、醫材公司臨床專員、考研究所。","第 1 年：約 5.4 萬（衛福部 113 年醫院通報；工會認為實際偏低，個別回報約 4.8 萬）\n第 1–3 年：粗估 5.0–5.8 萬\n第 3–5 年：粗估 5.5–6.3 萬\n第 5–7 年：粗估 6.0–7.0 萬\n（含夜班津貼；各院差異大，後三項沒找到可靠來源）"),
+E("cmu-3","營養學系","150.3","130.6","學習食物如何影響身體與疾病：營養學、生理生化、臨床營養、膳食療養、團體膳食與公共衛生營養，畢業後可報考營養師國考。","營養學、生理學、生物化學、食品化學、膳食療養學、臨床營養學、團體膳食管理、公共衛生營養、營養評估與諮詢、臨床實習。","醫院臨床營養師、長照與社福機構、學校與團膳、食品與保健食品公司、運動營養與營養諮詢。","以下皆為粗估月薪：\n第 1 年：約 3.0–3.6 萬\n第 1–3 年：約 3.3–3.9 萬\n第 3–5 年：約 3.6–4.3 萬\n第 5–7 年：約 4.0–4.8 萬\n（沒找到可靠來源）"),
+E("cmu-4","物理治療學系","175.7","154.9","學習用運動、手法與儀器幫助病人恢復功能，臨床實習多，畢業後報考物理治療師國考。","解剖學（含大體）、生理學、動作學與生物力學、肌肉骨骼／神經／心肺物理治療學、運動治療、物理治療評估、小兒與老年物理治療、臨床實習。","醫院與診所物理治療師、運動復健與運動團隊、長照與居家服務、兒童早療、自行開設物理治療所。","第 1 年：約 36,865 元\n第 1–3 年：約 42,287 元\n第 3–5 年：約 45,335 元\n第 5–7 年：約 48,171 元\n（履歷資料整理的平均月薪）"),
+E("cmu-5","生物科技學系","131.2","113.1","從分子與細胞層次認識生命，學習基因工程、生物製程與新藥開發的基礎，設有學士、碩士、博士班。","普通生物學、有機化學、生物化學、分子生物學、細胞生物學、遺傳學、免疫學、微生物學、生物統計、生物技術實驗、基因工程。","生技與製藥公司研發／QC／QA、研究助理、臨床試驗相關、醫材與檢驗公司、升學碩博士。","以下皆為粗估月薪（學士）：\n第 1 年：約 2.9–3.5 萬\n第 1–3 年：約 3.2–3.9 萬\n第 3–5 年：約 3.6–4.5 萬\n第 5–7 年：約 4.2–5.5 萬\n（碩士起薪約 4–5 萬；沒找到可靠來源）"),
+E("cmu-6","運動醫學系","140.6","119.0","結合運動科學與醫學，學習運動傷害防護、體適能與運動復健。（我沒搜到官方介紹，內容為一般性整理，請以系網為準。）","解剖生理學、運動生理學、運動生物力學、運動傷害防護與評估、運動訓練學、運動營養、體適能與運動處方、復健運動、運動心理。","運動防護員、運動中心與球隊、體適能與健康管理、復健與運動訓練相關、升學（物理治療、運動科學等）。","以下皆為粗估月薪：\n第 1 年：約 2.8–3.4 萬\n第 1–3 年：約 3.1–3.8 萬\n第 3–5 年：約 3.5–4.3 萬\n第 5–7 年：約 4.0–4.8 萬\n（沒找到可靠來源）"),
+E("cmu-7","中國藥學暨中藥資源學系","146.0","127.1","國內第一個以中藥專業為主的大學系，以傳統中藥學為基礎，融入現代藥學與生物科技，培養中藥鑑定、製造、品管、行銷、管理與研發人才。","中藥學、本草學與藥用植物學、生藥學、中藥鑑定學、中藥化學、方劑學、藥理學、中藥製劑與品質管制、中藥法規與行銷。","中藥廠與藥品公司（研發、品管、製造、行銷）、中藥行與連鎖藥局、生技與保健食品公司、研究助理、升學。","以下皆為粗估月薪：\n第 1 年：約 2.9–3.5 萬\n第 1–3 年：約 3.2–3.9 萬\n第 3–5 年：約 3.6–4.5 萬\n第 5–7 年：約 4.2–5.2 萬\n（沒找到可靠來源）"),
+E("cmu-8","醫務管理學系","113.2","93.7","把企業管理、醫療政策與基礎醫學應用在醫療照護產業，屬公共衛生學院。","公共衛生學、健康照護管理、管理學、生物統計學、環境衛生學、職業安全、統計軟體應用、公共衛生資料分析導論、醫療品質與健保制度。","醫院行政與病歷管理、健保與醫療品質管理、醫療保險公司、醫材與藥廠業務與企劃、衛生單位、升學。","以下皆為粗估月薪：\n第 1 年：約 3.1–3.6 萬\n第 1–3 年：約 3.4–4.0 萬\n第 3–5 年：約 3.8–4.6 萬\n第 5–7 年：約 4.3–5.3 萬\n（沒找到可靠來源）"),
+E("cmu-9","職業安全與衛生學系","110.9","105.5","研究如何預防職業災害、保障工作者安全與健康，涵蓋工業安全、工業衛生、人因與法規，屬公共衛生學院。","職業安全概論、工業安全、工業衛生、人因工程、風險評估、職業災害調查、安全衛生法規與管理、環境監測、職業病預防、生物統計。","工廠與科技廠職安衛管理師、環安衛工程師、勞檢與政府單位、顧問公司、保險風險管理。","以下皆為粗估月薪：\n第 1 年：約 3.4–4.2 萬\n第 1–3 年：約 3.8–4.8 萬\n第 3–5 年：約 4.3–5.5 萬\n第 5–7 年：約 4.8–6.5 萬\n（科技與製造業較高；沒找到可靠來源）"),
+E("cmu-10","生物醫學影像暨放射科學學系","","","學習 X 光、電腦斷層、磁振造影、超音波、核子醫學等醫學影像，以及放射治療與輻射安全，畢業後報考醫事放射師。","解剖學、物理學、輻射物理與輻射安全、放射線攝影學、電腦斷層與磁振造影、超音波、核子醫學、放射治療學、影像品質管理、臨床實習。","醫院放射師（診斷、核醫、放射治療）、醫材公司應用專員、輻射防護、升學研究所。","第 1 年：約 4.0 萬（馬偕單一回報，2024）\n第 1–3 年：粗估 4.2–4.8 萬\n第 3–5 年：粗估 4.6–5.3 萬\n第 5–7 年：粗估 5.0–5.8 萬\n（資深 8–10 年個別回報年薪約 66–68 萬；天下雜誌報導新加坡月薪可達 10 萬以上。後三項沒找到可靠來源）"),
+E("cmu-11","生物醫學工程學系","142.8","119.7","結合工程與醫學，學習醫療器材、生醫訊號與影像、生醫材料與醫療 AI。（我沒搜到官方介紹，內容為一般性整理，請以系網為準。）","微積分、普通物理、電路學、程式設計、生理學、生醫訊號處理、醫學影像、生醫材料、醫療器材法規、感測器與嵌入式、醫療 AI。","醫療器材研發與法規 RA、臨床工程、醫療 AI 與軟硬體、半導體與電子相關、升學碩博士。","以下皆為粗估月薪：\n第 1 年：約 3.3–4.0 萬\n第 1–3 年：約 3.7–4.7 萬\n第 3–5 年：約 4.2–5.5 萬\n第 5–7 年：約 4.8–6.5 萬\n（沒找到可靠來源）"),
+E("cmu-12","醫療資訊學系","115.7","92.2","113 學年度成立。五大課群：數學與電腦科學、程式設計與軟體開發、生物醫學與數位醫療、人工智慧與大數據分析、健康照護與醫療資訊管理。","微積分與離散數學、程式設計、資料結構、資料庫、機器學習與人工智慧、大數據分析、生物醫學與數位醫療、醫療資訊系統、健康照護管理。","系統架構與軟體應用工程師、電子病歷／護理資訊管理師、臨床與健康資訊分析師、醫學資訊資料科學家、醫療 IT 專案與顧問。","以下皆為粗估月薪（第一屆尚未畢業，沒有校友數據）：\n第 1 年：約 3.6–4.5 萬\n第 1–3 年：約 4.0–5.2 萬\n第 3–5 年：約 4.8–6.5 萬\n第 5–7 年：約 5.5–8.0 萬\n（軟體與資料職；沒找到可靠來源）")
+].map(function(s){s.school=S;return s});
+function seed(){SEED.forEach(function(s){var e=items.filter(function(i){return i.id===s.id})[0];if(e)Object.assign(e,s);else items.push(s)});save();render()}
+function patch(){SEED.forEach(function(s){var e=items.filter(function(i){return i.id===s.id})[0];if(e)Object.assign(e,s)});save()}
+var $=function(id){return document.getElementById(id)};
+
+function load(){
+  try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&Array.isArray(d.items)){items=d.items;order=(d.order||[]).filter(function(id){return items.some(function(i){return i.id===id})})}}catch(e){}
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({items:items,order:order}))}catch(e){say("無法儲存到瀏覽器，請使用匯出備份")}}
+function say(t){$("msg").textContent=t;setTimeout(function(){$("msg").textContent=""},3500)}
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+
+function sec(cls,label,txt){return txt?'<div class="sec '+cls+'"><b>'+label+'</b>'+'<div>'+esc(txt)+'</div>'+'</div>':""}
+function chips(t){if(!t)return "";return '<div class="sec course"><b>課程</b><div class="chips">'+t.split(/[、。]/).filter(Boolean).map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div></div>'}
+function sal(t){if(!t)return "";var r='',n='';t.split('\n').forEach(function(l){var m=l.match(/^(第 [^：]+)：(.*)$/);if(m)r+='<div class="yr"><span>'+esc(m[1])+'</span><span>'+esc(m[2])+'</span></div>';else n+='<div class="nt">'+esc(l)+'</div>'});return '<div class="sec sal"><b>薪資</b><div>'+r+n+'</div></div>'}
+function score(it){return it.hi?'<div class="score">114 寒轉　最高 '+it.hi+'　最低 '+it.lo+'</div>':'<div class="score">114 寒轉分數：未提供</div>'}
+function card(it,rank){
+  var h='<div class="card" data-id="'+it.id+'"><div class="head">';
+  if(rank)h+='<div class="rank">'+rank+'</div>';
+  h+='<div><div class="title">'+esc(it.dept)+'</div>'+(rank?'':'<div class="dept">'+esc(it.school)+'</div>')+score(it)+'</div>'+(rank?'<div class="grip" title="拖曳排序"><i></i></div>':'')+'</div>';
+  if(!rank){var op=openIds[it.id];h+='<button class="tg'+(op?' on':'')+'" data-a="tg" data-id="'+it.id+'" aria-expanded="'+(op?'true':'false')+'"><span>教學內容・課程・未來方向・薪資</span><span class="ar"></span></button><div class="fold'+(op?' open':'')+'"><div class="fi">'+sec("intro","教學內容",it.intro)+chips(it.courses)+sec("job","未來方向",it.job)+sal(it.salary)+'</div></div>'}
+  h+='<div class="btns">';
+  if(rank){
+    var i=rank-1;
+    h+='<button data-a="up" data-id="'+it.id+'"'+(i===0?" disabled":"")+'>↑ 上移</button>';
+    h+='<button data-a="down" data-id="'+it.id+'"'+(i===order.length-1?" disabled":"")+'>↓ 下移</button>';
+    h+='<button data-a="out" data-id="'+it.id+'">移出志願序</button>';
+  }else{
+    var oi=order.indexOf(it.id);h+=oi<0?'<button class="primary" data-a="in" data-id="'+it.id+'">加入志願序</button>':'<button data-a="out" data-id="'+it.id+'">✓ 已加入第 '+(oi+1)+' 志願（點此移出）</button>';
+  }
+  h+='</div></div>';
+  return h;
+}
+function render(){
+  var byId={};items.forEach(function(i){byId[i.id]=i});
+  var pool=items.slice().sort(function(a,b){var x=parseFloat(a.hi),y=parseFloat(b.hi);x=isNaN(x)?-1:x;y=isNaN(y)?-1:y;return y-x||(parseFloat(b.lo)||0)-(parseFloat(a.lo)||0)});
+  $("pool").innerHTML=pool.length?pool.map(function(i){return card(i,0)}).join(""):'<div class="empty">還沒有候選志願，請按最下方的「載入中國醫藥大學 12 系」</div>';
+  $("ranked").innerHTML=order.length?order.map(function(id,n){return card(byId[id],n+1)}).join(""):'<div class="empty">按候選志願的「加入志願序」，排好後可拖曳右側的 ═ 調整順序</div>';
+  $("c1").textContent=pool.length+" 個";$("c2").textContent=order.length+" 個";
+}
+
+
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button[data-a]");if(!b)return;
+  var id=b.dataset.id,a=b.dataset.a,i=order.indexOf(id);
+  if(a==="tg"){var f=b.nextElementSibling,op2=f.classList.toggle("open");b.classList.toggle("on",op2);b.setAttribute("aria-expanded",op2);if(op2)openIds[id]=1;else delete openIds[id];return}
+  if(a==="in")order.push(id);
+  else if(a==="out")order.splice(i,1);
+  else if(a==="up"&&i>0){order[i]=order[i-1];order[i-1]=id}
+  else if(a==="down"&&i>-1&&i<order.length-1){order[i]=order[i+1];order[i+1]=id}
+  else if(a==="del"){if(!confirm("確定刪除這個志願？"))return;items=items.filter(function(x){return x.id!==id});order=order.filter(function(x){return x!==id})}
+  save();render();
+});
+
+$("exp").onclick=function(){
+  var s=JSON.stringify({items:items,order:order});
+  $("box").hidden=false;$("box").value=s;$("box").select();
+  try{navigator.clipboard.writeText(s).then(function(){say("已複製備份內容")},function(){say("請手動複製下方文字")})}catch(e){say("請手動複製下方文字")}
+};
+$("imp").onclick=function(){
+  if($("box").hidden){$("box").hidden=false;$("box").value="";say("請貼上備份內容，再按一次匯入");return}
+  try{
+    var d=JSON.parse($("box").value);
+    if(!d||!Array.isArray(d.items))throw 0;
+    if(!confirm("匯入會覆蓋目前的資料，確定嗎？"))return;
+    items=d.items;order=(d.order||[]).filter(function(id){return items.some(function(i){return i.id===id})});
+    save();render();$("box").hidden=true;say("匯入完成");
+  }catch(e){say("備份內容格式不正確")}
+};
+$("seed").onclick=function(){seed();say("已載入，已存在的不會重複")};
+
+var first=true;try{first=localStorage.getItem(KEY)===null}catch(e){}
+load();if(first){seed()}else{patch();render()}
+try{if(window.Sortable)Sortable.create($("ranked"),{draggable:".card",handle:".grip",animation:150,ghostClass:"sortable-ghost",onUpdate:function(){var ids=[].map.call($("ranked").querySelectorAll(".card"),function(c){return c.dataset.id});if(ids.length===order.length){order=ids;save()}setTimeout(render,0)}})}catch(e){}
+})();
+</script>
+</body>
+</html>
